@@ -5,12 +5,9 @@ const PortfoliosList = ({
   portfolios,
   cmsSelected = "all",
   technologySelected = "all",
-  tailwindSelected = false,
 }) => {
-  const filterTechnology = "";
-
   return (
-    <div>
+    <article>
       {portfolios
         .filter((portfolio) => {
           if (cmsSelected !== "all") {
@@ -31,17 +28,10 @@ const PortfoliosList = ({
             return portfolio;
           }
         })
-        .filter((portfolio) => {
-          if (tailwindSelected === true) {
-            return portfolio.fields.tailwindCss === true;
-          } else {
-            return portfolio;
-          }
-        })
         .map((portfolio) => (
           <PortfolioCard portfolio={portfolio} key={portfolio.sys.id} />
         ))}
-    </div>
+    </article>
   );
 };
 

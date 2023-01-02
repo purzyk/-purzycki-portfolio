@@ -5,14 +5,7 @@ const PortfolioFilter = ({
   allTechnology,
   changeCms,
   changeTechnology,
-  changeTailwind,
 }) => {
-  const cms = "kentico";
-  const technology = "PHP";
-  const tailwind = true;
-  // 👇️ initialize state to default checked radio button
-  const [selected, setSelected] = useState("yes");
-
   const handleChangeCms = (event) => {
     changeCms(event.target.value);
   };
@@ -21,62 +14,67 @@ const PortfolioFilter = ({
   };
 
   return (
-    <div>
+    <div className="pt-8">
       <div className="flex flex-col">
-        <div>
-          <h2>CMS</h2>
+        <form className="mb-8">
+          <h2 className="text-xl">Technology</h2>
           <div>
             <input
               type="radio"
-              id="all"
-              name="choose"
-              value="all"
-              onChange={handleChangeCms}
-            />
-            <label htmlFor="all">all</label>
-          </div>
-          {allCMS.map((category) => (
-            <div key={category}>
-              <input
-                type="radio"
-                id={category}
-                name="choose"
-                value={category}
-                onChange={handleChangeCms}
-              />
-              <label htmlFor={category}>{category}</label>
-            </div>
-          ))}
-        </div>
-        <div>
-          <h2>CMS</h2>
-          <div>
-            <input
-              type="radio"
-              id="all"
-              name="choose"
+              id="allTech"
+              name="technology"
               value="all"
               onChange={handleChangeTech}
             />
-            <label htmlFor="all">all</label>
+            <label className="text-base  ml-4 capitalize" htmlFor="allTech">
+              all
+            </label>
           </div>
           {allTechnology.map((category) => (
             <div key={category}>
               <input
                 type="radio"
                 id={category}
-                name="choose"
+                name="technology"
                 value={category}
                 onChange={handleChangeTech}
               />
-              <label htmlFor={category}>{category}</label>
+              <label className="text-base  ml-4 capitalize" htmlFor={category}>
+                {category}
+              </label>
             </div>
           ))}
-        </div>
+        </form>
+        <form>
+          <h2 className="text-xl">CMS</h2>
+          <div>
+            <input
+              type="radio"
+              id="all"
+              name="cms"
+              value="all"
+              onChange={handleChangeCms}
+            />
+            <label className="text-base  ml-4 capitalize" htmlFor="all">
+              all
+            </label>
+          </div>
+          {allCMS.map((category) => (
+            <div key={category}>
+              <input
+                type="radio"
+                id={category}
+                name="cms"
+                value={category}
+                onChange={handleChangeCms}
+              />
+              <label className="text-base ml-4 capitalize" htmlFor={category}>
+                {category}
+              </label>
+            </div>
+          ))}
+        </form>
       </div>
-      Tailwind select
-      <br />
-      <button onClick={() => changeTailwind(tailwind)}>tailwind</button>
     </div>
   );
 };

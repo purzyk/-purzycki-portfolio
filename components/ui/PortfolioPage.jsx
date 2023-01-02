@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import PortfoliosList from "../data/lists/PortfoliosList";
 import PortfolioFilter from "../forms/PortfoliosFilter";
+import Header from "../globals/Header";
 
 function PortfolioPage({ portfolios }) {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [displayedPortfolios, setDisplayedPortfolios] = useState(portfolios);
   const getSelectedCategories = (category) => {
-    console.log(category);
     if (selectedCategories.includes(category)) {
       setSelectedCategories(
         selectedCategories.filter((item) => item !== category)
@@ -17,7 +17,6 @@ function PortfolioPage({ portfolios }) {
   };
   const [cmsSelected, setCmsSelected] = useState();
   const [technologySelected, setTechnologySelected] = useState();
-  const [tailwindSelected, setTailwindSelected] = useState(false);
   const allCMS = portfolios
     .map((cms) => cms.fields.cms)
     .flat()
@@ -33,20 +32,25 @@ function PortfolioPage({ portfolios }) {
       return arr;
     }, []);
   return (
-    <div className="flex flex-col space-y-10 sm:flex-row sm:space-x-6 sm:space-y-0 md:flex-col md:space-x-0 md:space-y-10 xl:flex-row xl:space-x-6 xl:space-y-0 mt-9">
-      <PortfoliosList
-        portfolios={displayedPortfolios}
-        cmsSelected={cmsSelected}
-        technologySelected={technologySelected}
-        tailwindSelected={tailwindSelected}
-      />
-      <PortfolioFilter
-        allCMS={allCMS}
-        allTechnology={allTechnology}
-        changeCms={setCmsSelected}
-        changeTechnology={setTechnologySelected}
-        changeTailwind={setTailwindSelected}
-      />
+    <div className="grid grid-cols-1 md:grid-cols-12">
+      <aside className="md:col-span-3">
+        <Header />
+        <div className="sticky top-0">
+          <PortfolioFilter
+            allCMS={allCMS}
+            allTechnology={allTechnology}
+            changeCms={setCmsSelected}
+            changeTechnology={setTechnologySelected}
+          />
+        </div>
+      </aside>
+      <section className="md:col-span-9">
+        <PortfoliosList
+          portfolios={displayedPortfolios}
+          cmsSelected={cmsSelected}
+          technologySelected={technologySelected}
+        />
+      </section>
     </div>
   );
 }
