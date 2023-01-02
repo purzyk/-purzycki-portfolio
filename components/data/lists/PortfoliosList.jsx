@@ -1,24 +1,19 @@
 import React, { useState } from "react";
 import PortfolioCard from "../cards/PortfolioCard";
 
-const PortfoliosList = ({ portfolios, cmsSelected }) => {
-  const categoriesFilter = [];
-  const filterCMS = null;
+const PortfoliosList = ({
+  portfolios,
+  cmsSelected = "all",
+  technologySelected = "all",
+  tailwindSelected = false,
+}) => {
   const filterTechnology = "";
-  const checkProps = (cmsSelected) => {
-    if (cmsSelected !== undefined) {
-      console.log("prop was passed");
-    } else {
-      console.log("prop was NOT passed");
-    }
-  };
+
   return (
     <div>
-      {checkProps(cmsSelected)}
-
       {portfolios
         .filter((portfolio) => {
-          if (cmsSelected !== undefined) {
+          if (cmsSelected !== "all") {
             return (
               portfolio.fields.cms.toLowerCase() === cmsSelected.toLowerCase()
             );
@@ -27,11 +22,18 @@ const PortfoliosList = ({ portfolios, cmsSelected }) => {
           }
         })
         .filter((portfolio) => {
-          if (filterTechnology.length > 0) {
+          if (technologySelected !== "all") {
             return (
               portfolio.fields.technology.toLowerCase() ===
-              filterTechnology.toLowerCase()
+              technologySelected.toLowerCase()
             );
+          } else {
+            return portfolio;
+          }
+        })
+        .filter((portfolio) => {
+          if (tailwindSelected === true) {
+            return portfolio.fields.tailwindCss === true;
           } else {
             return portfolio;
           }

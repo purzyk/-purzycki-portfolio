@@ -10,8 +10,15 @@ const PortfolioCard = ({ portfolio }) => {
           {portfolio.fields.title}
         </a>
       </Link>
-      <p>{portfolio.fields.cms}</p>
-      <p>{portfolio.fields.technology}</p>
+      <p>CMS:{portfolio.fields.cms}</p>
+      <p>Technlogogy:{portfolio.fields.technology}</p>
+      {portfolio.fields.tailwindCss && (
+        <div
+          className={`text-xs inline-flex font-medium rounded-full text-center px-2.5 py-1 bg-amber-100 text-amber-600`}
+        >
+          Tailwind
+        </div>
+      )}
 
       <Image
         src={"https:" + portfolio.fields.coverImage.fields.file.url}
