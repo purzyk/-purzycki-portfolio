@@ -1,8 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import TailwindSVG from "../../data/svg/TailwindSvg";
-import GithubSvg from "../../data/svg/GithubSvg";
-import Globe from "../svg/GlobeSvg";
+import { FaGithub, FaLink } from "react-icons/fa";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 const PortfolioCard = ({ portfolio }) => {
   return (
@@ -15,12 +14,12 @@ const PortfolioCard = ({ portfolio }) => {
           </div>
           {portfolio.fields.githubLink ? (
             <a
-              className="text-xs flex items-center mb-2"
+              className="url__link"
               href={portfolio.fields.githubLink}
               target="_blank"
               rel="noreferrer"
             >
-              <GithubSvg />{" "}
+              <FaGithub />{" "}
               <span className="ml-2">{portfolio.fields.githubLink}</span>
             </a>
           ) : (
@@ -29,12 +28,12 @@ const PortfolioCard = ({ portfolio }) => {
 
           {portfolio.fields.website ? (
             <a
-              className="text-xs flex items-center"
+              className="url__link"
               href={portfolio.fields.website}
               target="_blank"
               rel="noreferrer"
             >
-              <Globe />
+              <FaLink />
               <span className="ml-2"> {portfolio.fields.website}</span>
             </a>
           ) : (

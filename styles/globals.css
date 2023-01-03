@@ -15,3 +15,20 @@
   list-style: disc;
   padding-left: 15px;
 }
+.input__radio + label {
+  transition: 0.2s all;
+  cursor: pointer;
+}
+.input__radio:checked + label {
+  margin-left: 1.3rem;
+}
+
+.url__link {
+  @apply text-xs flex items-center mb-2;
+}
+.url__link span {
+  transition: all 0.2s;
+}
+.url__link:hover span {
+  margin-left: 0.7rem;
+}

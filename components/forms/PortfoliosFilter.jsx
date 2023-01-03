@@ -19,6 +19,7 @@ const PortfolioFilter = ({
         <h2 className="text-base md:text-xl">Technology</h2>
         <div>
           <input
+            className="input__radio"
             type="radio"
             id="allTech"
             name="technology"
@@ -32,6 +33,7 @@ const PortfolioFilter = ({
         {allTechnology.map((category) => (
           <div key={category}>
             <input
+              className="input__radio"
               type="radio"
               id={category}
               name="technology"
@@ -48,6 +50,7 @@ const PortfolioFilter = ({
         <h2 className="text-base md:text-xl">CMS</h2>
         <div>
           <input
+            className="input__radio"
             type="radio"
             id="all"
             name="cms"
@@ -61,6 +64,7 @@ const PortfolioFilter = ({
         {allCMS.map((category) => (
           <div key={category}>
             <input
+              className="input__radio"
               type="radio"
               id={category}
               name="cms"

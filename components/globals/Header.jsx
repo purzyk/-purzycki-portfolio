@@ -68,6 +68,7 @@ export default function Header() {
                 className="text-gray-400 hover:text-gray-500 flex items-center"
                 target="_blank"
                 rel="noreferrer"
+                href="/Piotr_Purzycki-CV.pdf"
               >
                 <FaFileDownload />
               </a>
