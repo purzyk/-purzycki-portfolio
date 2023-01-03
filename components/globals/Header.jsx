@@ -1,12 +1,13 @@
 import Image from "next/image";
 import LiftedFounderAvatar from "../../public/images/piotr_purzycki.png";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaFileDownload } from "react-icons/fa";
 
 const profile = {
   name: "Piotr Purzycki",
-  role: "Front-end developer from Wroclaw",
+  role: "Front-end developer z Wrocławia",
   profileImage: LiftedFounderAvatar,
 };
+
 const navigation = {
   social: [
     {
@@ -26,8 +27,8 @@ const navigation = {
 export default function Header() {
   return (
     <div>
-      <div className="mb-8 pt-10">
-        <div className="">
+      <div className=" mb-2 mt-2 md:mb-8 md:pt-10">
+        <div className="flex flex-row md:flex-col justify-between">
           <div className="flex flex-col">
             <div className="flex">
               <div className="relative h-28 w-28 rounded-full">
@@ -49,20 +50,27 @@ export default function Header() {
               </div>
             </div>
           </div>
-          <div className="mt-4 flex flex-col justify-stretch space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4">
-            <div className="mt-2 flex justify-center space-x-6">
+          <div className="md:mt-4 flex flex-col justify-stretch space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4">
+            <div className="md:mt-2 flex  space-x-6 items-end  flex-col md:flex-row md:justify-center md:items-start">
               {navigation.social.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-gray-400 hover:text-gray-500"
+                  className="text-gray-400 hover:text-gray-500 mb-2"
                 >
                   <span className="sr-only">{item.name}</span>
                   <item.icon className="h-6 w-6" aria-hidden="true" />
                 </a>
               ))}
+              <a
+                className="text-gray-400 hover:text-gray-500 flex items-center"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaFileDownload />
+              </a>
             </div>
           </div>
         </div>

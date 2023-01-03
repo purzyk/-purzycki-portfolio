@@ -33,7 +33,7 @@ function PortfolioPage({ portfolios }) {
     }, []);
   return (
     <div className="grid grid-cols-1 md:grid-cols-12">
-      <aside className="md:col-span-3">
+      <aside className="md:col-span-3 px-6 md:px-0">
         <Header />
         <div className="sticky top-0">
           <PortfolioFilter

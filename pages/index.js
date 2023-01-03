@@ -8,7 +8,6 @@ export default function Index({ portfolios }) {
 
 export const getStaticProps = async (ctx) => {
   const portfolios = await getPortfolios()
-
   return {
     props: {
       portfolios

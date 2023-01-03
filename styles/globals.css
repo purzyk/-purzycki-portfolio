@@ -3,3 +3,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.label {
+  @apply text-sm md:text-base ml-2 md:ml-4 capitalize;
+}
+.description hr {
+  padding: 20px 0;
+  border: 0;
+}
+.description ul {
+  list-style: disc;
+  padding-left: 15px;
+}

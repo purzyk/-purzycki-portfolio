@@ -6,11 +6,11 @@ import Globe from "../svg/GlobeSvg";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 const PortfolioCard = ({ portfolio }) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-12 mb-6  bg-slate-50 p-4">
-      <div className="md:col-span-6 flex flex-col justify-between pr-6">
-        <div>
-          <h2 className="text-2xl mb-1">{portfolio.fields.title}</h2>
-          <div className="mb-6">
+    <div className="grid grid-cols-1 md:grid-cols-12   bg-slate-50 md:p-4 mb-16">
+      <div className="md:col-span-6 flex flex-col justify-between pr-6 order-2 md:order-1 pb-4">
+        <div className="px-4 pb-4 mb-2">
+          <h2 className="text-xl md:text-2xl mb-1">{portfolio.fields.title}</h2>
+          <div className="mb-8 text-sm md:text-base description">
             {documentToReactComponents(portfolio.fields.description)}
           </div>
           {portfolio.fields.githubLink ? (
@@ -43,7 +43,7 @@ const PortfolioCard = ({ portfolio }) => {
         </div>
         <div>{portfolio.fields.tailwindCss && <TailwindSVG />}</div>
       </div>
-      <figure className="md:col-span-6">
+      <figure className="md:col-span-6 order-1 mb-4 md:mb-0 md:order-2">
         <Image
           src={"https:" + portfolio.fields.coverImage.fields.file.url}
           alt={portfolio.fields.coverImage.fields.title}

@@ -14,67 +14,65 @@ const PortfolioFilter = ({
   };
 
   return (
-    <div className="pt-8">
-      <div className="flex flex-col">
-        <form className="mb-8">
-          <h2 className="text-xl">Technology</h2>
-          <div>
+    <div className="pt-8 flex flex-row md:flex-col">
+      <form className="mb-8 mr-12 md:mr-0">
+        <h2 className="text-base md:text-xl">Technology</h2>
+        <div>
+          <input
+            type="radio"
+            id="allTech"
+            name="technology"
+            value="all"
+            onChange={handleChangeTech}
+          />
+          <label className="label" htmlFor="allTech">
+            all
+          </label>
+        </div>
+        {allTechnology.map((category) => (
+          <div key={category}>
             <input
               type="radio"
-              id="allTech"
+              id={category}
               name="technology"
-              value="all"
+              value={category}
               onChange={handleChangeTech}
             />
-            <label className="text-base  ml-4 capitalize" htmlFor="allTech">
-              all
+            <label className="label" htmlFor={category}>
+              {category}
             </label>
           </div>
-          {allTechnology.map((category) => (
-            <div key={category}>
-              <input
-                type="radio"
-                id={category}
-                name="technology"
-                value={category}
-                onChange={handleChangeTech}
-              />
-              <label className="text-base  ml-4 capitalize" htmlFor={category}>
-                {category}
-              </label>
-            </div>
-          ))}
-        </form>
-        <form>
-          <h2 className="text-xl">CMS</h2>
-          <div>
+        ))}
+      </form>
+      <form>
+        <h2 className="text-base md:text-xl">CMS</h2>
+        <div>
+          <input
+            type="radio"
+            id="all"
+            name="cms"
+            value="all"
+            onChange={handleChangeCms}
+          />
+          <label className="label" htmlFor="all">
+            all
+          </label>
+        </div>
+        {allCMS.map((category) => (
+          <div key={category}>
             <input
               type="radio"
-              id="all"
+              id={category}
               name="cms"
-              value="all"
+              value={category}
               onChange={handleChangeCms}
             />
-            <label className="text-base  ml-4 capitalize" htmlFor="all">
-              all
+            <label className="label" htmlFor={category}>
+              {category}
             </label>
           </div>
-          {allCMS.map((category) => (
-            <div key={category}>
-              <input
-                type="radio"
-                id={category}
-                name="cms"
-                value={category}
-                onChange={handleChangeCms}
-              />
-              <label className="text-base ml-4 capitalize" htmlFor={category}>
-                {category}
-              </label>
-            </div>
-          ))}
-        </form>
-      </div>
+        ))}
+      </form>
     </div>
   );
 };
