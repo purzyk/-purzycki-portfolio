@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin, FaFileDownload } from "react-icons/fa";
 
 const profile = {
   name: "Piotr Purzycki",
-  role: "Front-end developer z Wrocławia",
+  role: "Front-End Developer",
   profileImage: LiftedFounderAvatar,
 };
 
